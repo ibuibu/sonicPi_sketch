@@ -108,16 +108,24 @@ define :inversion do |chord, target|
   return chord
 end
 
-define :play! do |is_osc=false, note|
+define :play! do |is_osc=false, msg=nil, note|
   if is_osc
     if note.instance_of?(Array)
-      osc note.to_s.gsub!(/\[|\]|,/, '')
+      osc msg + ' ' + note.to_s.gsub!(/\[|\]|,/, '')
     elsif note.instance_of?(Integer)
-      osc note.to_s
+      osc msg + ' ' + note.to_s
     else
       puts 'error in play_or_osc'
     end
   else
     play note
+  end
+end
+
+define :sample! do |is_osc=false, msg=nil, note, smpl|
+  if is_osc
+    osc msg + ' ' + note.to_s
+  else
+    sample smpl
   end
 end
