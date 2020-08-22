@@ -37,9 +37,9 @@ FOUR_MESURE_REPEAT_NUM = 2
 LEN = SEQLEN * 4 * FOUR_MESURE_REPEAT_NUM
 
 define :make_seq do |seqlen, len, be|
-  if be % LEN == 0
+  if be % len == 0
     seq = [0]
-    (SEQLEN - 1).times do
+    (seqlen - 1).times do
       seq.push(rand_i(4))
     end
 
