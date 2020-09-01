@@ -1,11 +1,4 @@
-use_osc "localhost", 4565
-use_bpm 60
-use_random_seed 0
+tl = Tracklist.new(3)
 
-OSCMODE = true
-
-live_loop :an do
-  # play!(OSCMODE, "drum", 70)
-  sample!(OSCMODE, "drum", 70, :hh)
-  sleep 1
-end
+puts tl.num
+puts tl.states

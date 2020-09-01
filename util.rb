@@ -129,3 +129,22 @@ define :sample! do |is_osc=false, msg=nil, note, smpl|
     sample smpl
   end
 end
+
+define :initTrackStates do |n|
+  array = [0]
+  (n - 1).times do
+    array += [0]
+  end
+  return array
+end
+
+define :random_choice do |n, states|
+  indexes = []
+  (0..states.length).each do |index|
+    if states[index] == n
+      indexes.push(index)
+    end
+  end
+  target = indexes.shuffle[0]
+  return target
+end

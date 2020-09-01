@@ -76,7 +76,7 @@ live_loop :rythm do
   make_seq(SEQLEN, LEN, be)
   
   ##### PLAY #####
-  pos = be % (LEN/2)
+  pos = be % (LEN/FOUR_MESURE_REPEAT_NUM)
   case seq4[pos]
   when 0 then
     sample bds[br], amp: bd_param_seq4[pos][0], rate: bd_param_seq4[pos][1]
